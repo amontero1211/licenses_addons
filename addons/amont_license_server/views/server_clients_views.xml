@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="amont_server_client_view_form" model="ir.ui.view">
+        <field name="name">amont.server.client.view.form</field>
+        <field name="model">amont.server.client</field>
+        <field name="arch" type="xml">
+            <form string="Client">
+                <header>
+                    <button string="Generate License" name="generate_license" type="object" class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="database"/>
+                        <field name="partner_id"/>
+                        <field name="email"/>
+                        <field name="license"/>
+                    </group>
+                    <group>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                    </group>
+                </sheet>
+                <div class="o_attachment_preview"/>
+                <!-- Chatter -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'always'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="amont_server_client_view_tree" model="ir.ui.view">
+        <field name="name">amont.server.client.view.tree</field>
+        <field name="model">amont.server.client</field>
+        <field name="arch" type="xml">
+            <tree string="Clients">
+                <field name="name"/>
+                <field name="database"/>
+                <field name="license"/>
+                <field name="state" widget="badge" decoration-success="state == 'active'" decoration-danger="state == 'expired'"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="amont_server_clients_action" model="ir.actions.act_window">
+        <field name="name">Server Clients</field>
+        <field name="res_model">amont.server.client</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p>Epa, no has creado nada aun</p>
+        </field>
+    </record>
+
+</odoo>

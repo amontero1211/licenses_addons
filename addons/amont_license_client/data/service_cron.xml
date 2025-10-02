@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ir_cron_amont_license_client" model="ir.cron">
+        <field name="name">Check amont license status</field>
+        <field name="model_id" ref="model_res_company"/>
+        <field name="state">code</field>
+        <field name="code">model.auto_validate_license()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">True</field>
+        <field name="active">True</field>
+    </record>
+    <record id="ir_cron_amont_license_client_date_checker" model="ir.cron">
+        <field name="name">Send amont license notification</field>
+        <field name="model_id" ref="model_res_company"/>
+        <field name="state">code</field>
+        <field name="code">model.try_send_notification()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">True</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

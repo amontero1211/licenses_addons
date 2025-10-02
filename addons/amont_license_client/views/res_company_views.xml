@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_company_form_inherit_amont_license_client" model="ir.ui.view">
+        <field name="name">res.company.view.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="try_send_notification" string="Send Notification" type="object" class="oe_highlight"/>
+                </header>
+            </xpath> -->
+            <xpath expr="//page[@name='general_info']" position="after">
+                <page name="amont_license_client" string="License Client">
+                    <group>
+                        <field name="amont_license"/>
+                        <field name="is_amont_license_valid"/>
+                        <field name="api_url"/>
+                        <field name="start_date" readonly="1"/>
+                        <field name="end_date" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
