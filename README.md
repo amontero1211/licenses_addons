@@ -7,18 +7,22 @@ Email Notification System
 This module now includes an automated email notification system for license expiration reminders.
 
 Features
+
 Automated Email Reminders: Sends email notifications to all active users when licenses are about to expire
 Multiple Reminder Points: Sends reminders at 30, 15, 7, 3, and 1 days before expiration
 Expired License Notification: Sends urgent notification when license has expired
 Duplicate Prevention: Tracks which reminders have been sent to avoid duplicate emails
 Auto-Reset: Resets reminder flags when license is renewed
+
 Reminder Schedule
 30 days before expiration: First reminder
 15 days before expiration: Second reminder
 7 days before expiration: Third reminder
 3 days before expiration: Fourth reminder
 1 day before expiration: Final reminder
+
 On expiration day: Urgent expired notification
+
 Configuration
 Email Templates: Two email templates are provided:
 
@@ -34,7 +38,9 @@ reminder_7_days_sent
 reminder_3_days_sent
 reminder_1_day_sent
 reminder_expired_sent
+
 How It Works
+
 The cron job ir_cron_amont_license_client_date_checker runs every minute
 It checks all companies with valid licenses and end dates
 For each company, it calculates days remaining until expiration
